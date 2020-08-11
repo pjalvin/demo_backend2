@@ -1,0 +1,13 @@
+n=[2,5,78,165,16,498,2,2,5,2,65,48,132,132,498,8,132,132,9,162,132,49,32,132,9,
+32,3,6,32,2,1,4,132,65,9,32,2,2,2,23,48,45,132]
+arrayor=[]
+for i in range(0,len(n)):
+    arraya=n.
+    print(n)
+    minimo=min(n)
+    mini=n.index(minimo,i,len(n))
+    x=n[i]
+    n[i]=n[mini]
+    n[mini]=x
+    
+

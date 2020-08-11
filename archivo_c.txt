@@ -1,0 +1,53 @@
+from random import randint, uniform,random
+import math
+from math import e,pi
+import time
+from pandas import DataFrame
+import matplotlib.pyplot as plt
+def fungamma(z):
+    sem=0.95
+    ret=0.0
+    inte=0.0
+    dx=0.05
+    i=1
+    while(pow(ret,z-1)*pow(e,-ret)>0.001 or ret<z):
+        ret=i*dx
+        inte+=pow(ret,z-1)*pow(e,-ret)*dx            
+        i+=1;
+    return inte
+def combinatoria(a,b):
+    return (math.factorial(a))/((math.factorial(b)*math.factorial(a-b)))
+def randomsem(p):
+    sem=random()
+    ret=0.0
+    inte=0.0
+    val=0
+    i=0
+    while(inte<sem ):
+        ret=i
+        inte+= pow(p,ret)*pow((1-p),1-ret)
+        i+=1;    
+    return [ret, pow(p,ret)*pow((1-p),1-ret),val ]
+
+numrx=[]
+numry=[]
+sem=[]
+p=float(input("Ingrese p: "))
+for i in range(0,2000):
+    val=randomsem(p)
+    numrx.append(val[0])
+    numry.append(val[1])
+    sem.append(val[2])
+inte20 =0
+for  i in range(0,2):
+    inte20=pow(p,i)*pow((1-p),1-i)   
+    print(inte20)
+print(numrx)
+numrx, numry = zip(*sorted(zip(numrx, numry)))
+Data = {'x': numrx,
+        'y': numry
+       }
+df = DataFrame(Data,columns=['x','y'])
+print(df)
+df.plot.scatter(x ='x', y='y')
+plt.show()
