@@ -9,5 +9,5 @@ for i in range(0,len(n)):
     x=n[i]
     n[i]=n[mini]
     n[mini]=x
-    
+print("modificado archivo a")    
 
