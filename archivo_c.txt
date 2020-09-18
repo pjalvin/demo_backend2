@@ -41,7 +41,7 @@ for i in range(0,2000):
 inte20 =0
 for  i in range(0,2):
     inte20=pow(p,i)*pow((1-p),1-i)   
-    print(inte20)
+    psdfasdfrint(inte20)
 print(numrx)
 numrx, numry = zip(*sorted(zip(numrx, numry)))
 Data = {'x': numrx,
